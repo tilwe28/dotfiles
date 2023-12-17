@@ -1,7 +1,8 @@
 #!/bin/sh
 
-alias ll='ls -l --color=auto'
-alias la='ls -a --color=auto'
-alias l='ls -ltrp --color=auto'
+alias ls='ls -CF --color=auto'
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -ltrF --color=auto'
 
 alias nv='nvim'
