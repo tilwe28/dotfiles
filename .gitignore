@@ -4,9 +4,14 @@
 # Tracking
 !.gitignore
 
+# alacritty
 !/alacritty
 /alacritty/*
 !/alacritty/alacritty.toml
 !/alacritty/themes
 
+# zsh
+!/zsh
+
+# neovim
 !/nvim
