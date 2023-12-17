@@ -1,0 +1,12 @@
+# Ignore everything
+/*
+
+# Tracking
+!.gitignore
+
+!/alacritty
+/alacritty/*
+!/alacritty/alacritty.toml
+!/alacritty/themes
+
+!/nvim
