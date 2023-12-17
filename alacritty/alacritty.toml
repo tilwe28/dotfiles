@@ -15,3 +15,9 @@ bold = { family = "JetBrains Mono", style = "Bold" }
 italic = { family = "JetBrains Mono", style = "MediumItalic" }
 bold_italic = { family = "JetBrains Mono", style = "BoldItalic" }
 size = 10
+
+[keyboard]
+bindings = [
+    { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+    { key = "W", mods = "Control", action = "Quit" },
+]
