@@ -10,10 +10,10 @@ args = ["--login"]
 opacity = 0.9
 
 [font]
-normal = { family = "JetBrains Mono", style = "Medium" }
-bold = { family = "JetBrains Mono", style = "Bold" }
-italic = { family = "JetBrains Mono", style = "MediumItalic" }
-bold_italic = { family = "JetBrains Mono", style = "BoldItalic" }
+normal = { family = "MesloLGS NF", style = "Regular" }
+bold = { family = "MesloLGS NF", style = "Bold" }
+italic = { family = "MesloLGS NF", style = "Italic" }
+bold_italic = { family = "MesloLGS NF", style = "Bold Italic" }
 size = 10
 
 [keyboard]
