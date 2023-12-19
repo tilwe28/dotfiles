@@ -36,8 +36,8 @@ function zsh_add_plugin() {
     # source $ZDOTDIR/plugins/$PLUGIN_NAME
     PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
     if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
-        source "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
-        source "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+        source "$ZDOTDIR/plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
+        source "$ZDOTDIR/plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
     else
         git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
     fi
