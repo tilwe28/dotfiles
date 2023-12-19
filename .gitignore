@@ -14,7 +14,8 @@
 !/zsh
 /zsh/.*
 !/zsh/.zshrc
-/zsh/plugins
+/zsh/plugins/*
+!/zsh/plugins/dirhistory.plugin.zsh
 
 # neovim
 !/nvim
