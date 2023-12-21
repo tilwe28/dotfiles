@@ -11,10 +11,12 @@ alias la='exa -lah --icons -s=type --no-user' # alias la='ls -A --color=auto'
 alias l='exa -lh --icons -s=type --no-user' # alias l='ls -ltrF --color=auto'
 
 # cat/bat
-alias bat='cat'
+alias cat='bat --theme OneHalfDark'
 
 # vim
 alias nv='nvim'
+alias vi='nvim'
+alias vim='nvim'
 
 # git
 alias g='git'
