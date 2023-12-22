@@ -33,7 +33,7 @@ require("lazy").setup({
         "nvim-lualine/lualine.nvim",
         opts = {
             options = {
-                icons_enabled = false,
+                icons_enabled = true,
                 theme = "onedark",
                 component_separators = '|',
                 section_separators = '',
@@ -45,20 +45,89 @@ require("lazy").setup({
         },
     },
 
+    -- LSP
+    {},
+
+    -- Autocomplete
+    {},
+
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
+            "windwp/nvim-ts-autotag",
         },
         build = ":TSUpdate",
     },
+
+    -- Autopairs
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
+    },
+
+    -- Indent
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+    },
+
+    -- Comment
+    {
+        "numToStr/Comment.nvim",
+        opts = {},
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        opts = {
+            -- TODO: configure colors and keywords for comments
+        },
+    },
+
+    -- Filetree
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup({})
+        end,
+    },
+
+    -- Toggleterm
+    {},
+
+    -- Git
+    {
+        "lewis6991/gitsigns.nvim",
+        opts = {
+            signs = {
+                add = { text = '+' },
+                change = { text = '~' },
+                delete = { text = '_' },
+                topdelete = { text = '‾' },
+                changedelete = { text = '~' },
+            },
+        },
+    },
+
+    -- Fuzzy Finder
+    {},
 })
 
 -- Configure Treesitter
 vim.defer_fn(function()
     require("nvim-treesitter.configs").setup({
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "bash", "cpp", "python" },
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "bash", "cpp", "python", "html", "markdown" },
         auto_install = true,
 
         highlight = { enable = true },
@@ -70,7 +139,7 @@ vim.defer_fn(function()
                 init_selection = "<C-Space>",
                 node_incremental = "<C-Space>",
                 scope_incremental = "<C-s>",
-                node_decremental = "<M-Space>",
+                node_decremental = "<C-,>",
             },
         },
 
@@ -83,8 +152,8 @@ vim.defer_fn(function()
                     ["ia"] = "@parameter.inner",
                     ["af"] = "@function.outer",
                     ["if"] = "@function.inner",
-                    ["ac"] = "@class.outer",
-                    ["ic"] = "@class.inner",
+                    ["ac"] = "@conditional.outer",
+                    ["ic"] = "@conditional.inner",
                 },
             },
             move = {
@@ -112,6 +181,11 @@ vim.defer_fn(function()
                 swap_next = { ["<leader>a"] = "@parameter.inner", },
                 swap_previous = { ["<leader>A"] = "@parameter.inner", },
             },
+        },
+
+        autotag = {
+            enable = true,
+
         },
     })
 end, 0)
