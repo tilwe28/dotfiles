@@ -14,10 +14,10 @@ normal = { family = "MesloLGS NF", style = "Regular" }
 bold = { family = "MesloLGS NF", style = "Bold" }
 italic = { family = "MesloLGS NF", style = "Italic" }
 bold_italic = { family = "MesloLGS NF", style = "Bold Italic" }
-size = 10
+size = 8
 
 [keyboard]
 bindings = [
     { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
-    { key = "W", mods = "Control", action = "Quit" },
+    { key = "W", mods = "Control|Shift", action = "Quit" },
 ]
