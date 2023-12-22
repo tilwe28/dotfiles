@@ -9,17 +9,17 @@ vim.g.maplocalleader = ' '
 -------------
 -- Plugins --
 -------------
-require("plugins")
+require("custom.plugins")
 
 -------------
 -- Options --
 -------------
-require("options")
+require("custom.options")
 
 -------------
 -- Keymaps --
 -------------
-require("keymaps")
+require("custom.keymaps")
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
