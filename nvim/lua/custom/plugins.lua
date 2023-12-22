@@ -183,9 +183,7 @@ vim.defer_fn(function()
             },
         },
 
-        autotag = {
-            enable = true,
-
-        },
+        autopairs = { enable = true, },
+        autotag = { enable = true, },
     })
 end, 0)

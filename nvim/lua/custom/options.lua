@@ -41,4 +41,5 @@ vim.o.timeoutlen = 300
 vim.o.undofile = true               -- save undo history
 vim.opt.virtualedit = "block"       -- visual block allows selection over entire screen
 vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.showmode = false
 vim.cmd([[set iskeyword+=-]])
