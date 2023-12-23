@@ -4,19 +4,22 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Set <space> as leader key
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '	
-
--------------
--- Plugins --
--------------
-require("custom.plugins")
-require("custom.treesitter")
-require("custom.cmp")
+vim.g.maplocalleader = ' '
 
 -------------
 -- Options --
 -------------
 require("custom.options")
+
+-------------
+-- Plugins --
+-------------
+require("custom.plugins")
+-- require("custom.telescope")
+require("custom.treesitter")
+require("custom.lsp")
+require("custom.cmp")
+-- require("custom.whichkey")
 
 -------------
 -- Keymaps --

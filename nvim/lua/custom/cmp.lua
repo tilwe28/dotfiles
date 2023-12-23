@@ -46,7 +46,7 @@ cmp.setup({
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.confirm()
+                cmp.confirm({ select = true })
             elseif luasnip.expandable() then
                 luasnip.expand()
             elseif luasnip.expand_or_locally_jumpable() then
@@ -69,9 +69,19 @@ cmp.setup({
         end, { 'i', 's' }),
     }),
     sources = {
-        -- { name = "nvim_lps" },
+        { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
     },
 })
+
+-- Use autopairs to add parenthesis after selecting a function or method
+local autopairs_status_ok, autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+if not autopairs_status_ok then
+    return
+end
+cmp.event:on(
+    "confirm_done",
+    autopairs.on_confirm_done()
+)

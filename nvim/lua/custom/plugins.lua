@@ -46,12 +46,26 @@ require("lazy").setup({
     },
 
     -- LSP
-    {},
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            -- Language Server Installer
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+            
+            -- Additional lua config
+            "folke/neodev.nvim",
 
-    -- Autocomplete
+            -- Status notifications
+            { "j-hui/fidget.nvim", opts = {} },
+        },
+    },
+
+    -- Complete
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
@@ -113,6 +127,8 @@ require("lazy").setup({
         config = function()
             require("nvim-tree").setup({})
         end,
+
+        -- TODO: customize icons
     },
 
     -- Toggleterm
@@ -130,8 +146,18 @@ require("lazy").setup({
                 changedelete = { text = '~' },
             },
         },
+
+        -- NOTE: May want to add keymaps for extra git functionality
     },
 
     -- Fuzzy Finder
-    {},
+    {
+        -- TODO: Add telescope fzf
+    },
+
+    -- Which-Key
+    {
+        -- "folke/which-key.nvim",
+        -- opts = {},
+    },
 })
