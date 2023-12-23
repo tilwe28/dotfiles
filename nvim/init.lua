@@ -10,6 +10,8 @@ vim.g.maplocalleader = ' '
 -- Plugins --
 -------------
 require("custom.plugins")
+require("custom.treesitter")
+require("custom.cmp")
 
 -------------
 -- Options --
