@@ -22,7 +22,7 @@ vim.keymap.set('n', "<M-->", ":vertical resize -2<CR>", silent)
 vim.keymap.set('n', "<M-=>", ":vertical resize +2<CR>", silent)
 
 -- NvimTree
-vim.keymap.set({ 'n', 'v', 'i' }, "<C-e>", ":NvimTreeToggle<CR>", silent)
+vim.keymap.set({ 'n', 'v', 'i' }, "<C-e>", "<Esc>:NvimTreeToggle<CR>", silent)
 
 -- Buffer Navigation
 vim.keymap.set('n', "<S-l>", ":bnext<CR>", silent)
