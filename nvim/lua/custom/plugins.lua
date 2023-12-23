@@ -49,7 +49,19 @@ require("lazy").setup({
     {},
 
     -- Autocomplete
-    {},
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+
+            -- Snippets
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
+        },
+    },
 
     -- Treesitter
     {
@@ -123,67 +135,3 @@ require("lazy").setup({
     -- Fuzzy Finder
     {},
 })
-
--- Configure Treesitter
-vim.defer_fn(function()
-    require("nvim-treesitter.configs").setup({
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "bash", "cpp", "python", "html", "markdown" },
-        auto_install = true,
-
-        highlight = { enable = true },
-        indent = { enable = true },
-
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = "<C-Space>",
-                node_incremental = "<C-Space>",
-                scope_incremental = "<C-s>",
-                node_decremental = "<C-,>",
-            },
-        },
-
-        textobjects = {
-            select = {
-                enable = true,
-                lookahead = true,
-                keymaps = {
-                    ["aa"] = "@parameter.outer",
-                    ["ia"] = "@parameter.inner",
-                    ["af"] = "@function.outer",
-                    ["if"] = "@function.inner",
-                    ["ac"] = "@conditional.outer",
-                    ["ic"] = "@conditional.inner",
-                },
-            },
-            move = {
-                enable = true,
-                set_jumps = true,
-                goto_next_start = {
-                    ["]m"] = "@function.outer",
-                    ["]]"] = "@class.outer",
-                },
-                goto_next_end = {
-                    ["]M"] = "@function.outer",
-                    ["]["] = "@class.outer",
-                },
-                goto_previous_start = {
-                    ["[m"] = "@function.outer",
-                    ["[["] = "@class.outer",
-                },
-                goto_previous_end = {
-                    ["[M"] = "@function.outer",
-                    ["[]"] = "@class.outer",
-                },
-            },
-            swap = {
-                enable = true,
-                swap_next = { ["<leader>a"] = "@parameter.inner", },
-                swap_previous = { ["<leader>A"] = "@parameter.inner", },
-            },
-        },
-
-        autopairs = { enable = true, },
-        autotag = { enable = true, },
-    })
-end, 0)
