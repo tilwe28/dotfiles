@@ -1,7 +1,7 @@
 ---------
 -- LSP --
 ---------
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
     local nmap = function(keys, func, desc)
         if desc then
             desc = "LSP: " .. desc
@@ -12,8 +12,6 @@ local on_attach = function(client, bufnr)
 
     nmap("<Leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
     nmap("<Leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-    -- TODO: telescope keymaps for [G]oto
 
     nmap('K', vim.lsp.buf.hover, "Hover Documentation")
     nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
