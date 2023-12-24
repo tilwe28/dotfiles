@@ -125,10 +125,19 @@ require("lazy").setup({
             "nvim-tree/nvim-web-devicons",
         },
         config = function()
-            require("nvim-tree").setup({})
+            require("nvim-tree").setup({
+                renderer = {
+                    highlight_git = true,
+                    indent_markers = { enable = true, },
+                },
+                modified = {
+                    enable = true,
+                },
+                filters = {
+                    git_ignored = false,
+                },
+            })
         end,
-
-        -- TODO: customize icons
     },
 
     -- Toggleterm
