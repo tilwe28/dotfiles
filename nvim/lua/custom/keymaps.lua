@@ -40,3 +40,28 @@ vim.keymap.set('i', "<M-Up>", "<Esc>:m .-2<CR>i", silent)
 
 -- Paste
 vim.keymap.set('v', 'p', '"_dP', silent)
+
+---------------
+-- Telescope --
+---------------
+vim.keymap.set('n', "<Leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
+vim.keymap.set('n', "<Leader><Space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
+vim.keymap.set('n', "<Leader>/", function()
+    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+        winblend = 10,
+        previewer = false,
+    }))
+end, { desc = "[/] Fuzzily search in current buffer" })
+vim.keymap.set('n', "<Leader>s/", function()
+    require("telescope.builtin").live_grep({
+        grep_open_files = true,
+        prompt_title = "Live Grep in Open Files",
+    })
+end, { desc = "[S]earch [/] in Open Files" })
+vim.keymap.set('n', "<Leader>ss", require("telescope.builtin").builtin, { desc = "[S]earch [S]elect Telescope" })
+vim.keymap.set('n', "<Leader>gf", require("telescope.builtin").git_files, { desc = "[S]earch [G]it Files" })
+vim.keymap.set('n', "<Leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set('n', "<Leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
+vim.keymap.set('n', "<Leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
+vim.keymap.set('n', "<Leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
+vim.keymap.set('n', "<Leader>sr", require("telescope.builtin").resume, { desc = "[S]earch [R]esme" })

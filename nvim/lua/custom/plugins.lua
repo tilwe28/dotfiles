@@ -37,6 +37,7 @@ require("lazy").setup({
                 theme = "onedark",
                 component_separators = '|',
                 section_separators = '',
+                globalstatus = true,
             },
             sections = {
                 lualine_b = { "filename" },
@@ -108,9 +109,6 @@ require("lazy").setup({
     },
     {
         "folke/todo-comments.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
         opts = {
             -- TODO: configure colors and keywords for comments
         },
@@ -126,6 +124,7 @@ require("lazy").setup({
         },
         config = function()
             require("nvim-tree").setup({
+                -- TODO: customize visuals
                 renderer = {
                     highlight_git = true,
                     indent_markers = { enable = true, },
@@ -159,9 +158,19 @@ require("lazy").setup({
         -- NOTE: May want to add keymaps for extra git functionality
     },
 
-    -- Fuzzy Finder
+    -- Fuzzy Finder & Telescope
     {
-        -- TODO: Add telescope fzf
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+                cond = function ()
+                    return vim.fn.executable("make") == 1
+                end,
+            },
+        },
     },
 
     -- Which-Key

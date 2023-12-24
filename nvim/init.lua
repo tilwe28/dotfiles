@@ -15,7 +15,7 @@ require("custom.options")
 -- Plugins --
 -------------
 require("custom.plugins")
--- require("custom.telescope")
+require("custom.telescope")
 require("custom.treesitter")
 require("custom.lsp")
 require("custom.cmp")
