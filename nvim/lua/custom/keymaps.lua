@@ -65,3 +65,22 @@ vim.keymap.set('n', "<Leader>sh", require("telescope.builtin").help_tags, { desc
 vim.keymap.set('n', "<Leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
 vim.keymap.set('n', "<Leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set('n', "<Leader>sr", require("telescope.builtin").resume, { desc = "[S]earch [R]esme" })
+
+---------
+-- LSP --
+---------
+local nmap = function(keys, func, desc)
+    if desc then
+        desc = "LSP: " .. desc
+    end
+
+    vim.keymap.set('n', keys, func, { buffer = 0, desc = desc })
+end
+
+nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+nmap("gi", require("telescope.builtin").lsp_implementations, "[G]oto Implentation")
+nmap("<Leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+nmap("<Leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+nmap("<Leader>ws",require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")

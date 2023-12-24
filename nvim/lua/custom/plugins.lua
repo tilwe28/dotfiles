@@ -53,7 +53,7 @@ require("lazy").setup({
             -- Language Server Installer
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            
+
             -- Additional lua config
             "folke/neodev.nvim",
 
@@ -175,7 +175,7 @@ require("lazy").setup({
 
     -- Which-Key
     {
-        -- "folke/which-key.nvim",
-        -- opts = {},
+        "folke/which-key.nvim",
+        opts = {},
     },
 })

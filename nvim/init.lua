@@ -19,7 +19,7 @@ require("custom.telescope")
 require("custom.treesitter")
 require("custom.lsp")
 require("custom.cmp")
--- require("custom.whichkey")
+require("custom.whichkey")
 
 -------------
 -- Keymaps --
