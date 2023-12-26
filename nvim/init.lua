@@ -30,6 +30,7 @@ vim.g.loaded_netrwPlugin = 1
 
 local opts = {
     defaults = { lazy = true, },
+    change_detection = { notify = false, },
 }
 
 local lazy_status_ok, lazy = pcall(require, 'lazy')

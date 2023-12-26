@@ -29,6 +29,7 @@ opt.splitbelow = true
 opt.inccommand = 'split'          -- shows preview window of search and replace changes
 vim.wo.signcolumn = 'yes'           -- keep signcolumn on
 opt.showmode = false              -- status line already shows mode
+-- opt.showtabline = 2
 
 -- Cursor
 opt.scrolloff = 8                   -- keep cursor in middle
