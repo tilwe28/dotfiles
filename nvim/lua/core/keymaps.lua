@@ -17,13 +17,23 @@ keymap('n', '<C-h>', '<C-w>h', silent)
 keymap('n', '<C-j>', '<C-w>j', silent)
 keymap('n', '<C-k>', '<C-w>k', silent)
 keymap('n', '<C-l>', '<C-w>l', silent)
+keymap('i', '<C-h>', '<Esc><C-w>hi', silent)
+keymap('i', '<C-j>', '<Esc><C-w>ji', silent)
+keymap('i', '<C-k>', '<Esc><C-w>ki', silent)
+keymap('i', '<C-l>', '<Esc><C-w>li', silent)
 
 -- Window Resize
 keymap('n', '<M-->', ':vertical resize -2<CR>', silent)
 keymap('n', '<M-=>', ':vertical resize +2<CR>', silent)
 
 -- NvimTree
-keymap({ 'n', 'v', 'i' }, '<C-e>', '<Esc>:NvimTreeToggle<CR>', silent)
+keymap({ 'n', 'v', 'i' }, '<C-b>', function()
+    if vim.bo.filetype ~= 'NvimTree' then
+        return '<Esc>:NvimTreeToggle<CR>'
+    else
+        return '<Esc>:NvimTreeClose<CR>'
+    end
+end, { expr = true, silent = true, desc = "Toggle NvimTree", })
 
 -- Buffer Navigation
 keymap('n', '<S-l>', ':bnext<CR>', silent)
@@ -45,27 +55,27 @@ keymap('v', 'p', '"_dP', silent)
 ---------------
 -- Telescope --
 ---------------
-keymap('n', '<Leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-keymap('n', '<Leader><Space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+keymap('n', '<Leader>?', require('telescope.builtin').oldfiles, { desc = 'Recent Files' })
+keymap('n', '<Leader><Space>', require('telescope.builtin').buffers, { desc = 'Existing buffers' })
 keymap('n', '<Leader>/', function()
     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({
         winblend = 10,
         previewer = false,
     }))
-end, { desc = '[/] Fuzzily search in current buffer' })
+end, { desc = 'Search Current Buffer' })
 keymap('n', '<Leader>s/', function()
     require('telescope.builtin').live_grep({
         grep_open_files = true,
         prompt_title = 'Live Grep in Open Files',
     })
-end, { desc = '[S]earch [/] in Open Files' })
-keymap('n', '<Leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
-keymap('n', '<Leader>gf', require('telescope.builtin').git_files, { desc = '[S]earch [G]it Files' })
-keymap('n', '<Leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-keymap('n', '<Leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-keymap('n', '<Leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-keymap('n', '<Leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-keymap('n', '<Leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esme' })
+end, { desc = 'Search in Open Files' })
+keymap('n', '<Leader>ss', require('telescope.builtin').builtin, { desc = 'Select Telescope' })
+keymap('n', '<Leader>gf', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
+keymap('n', '<Leader>sf', require('telescope.builtin').find_files, { desc = 'Find Files' })
+keymap('n', '<Leader>sh', require('telescope.builtin').help_tags, { desc = 'Search Help' })
+keymap('n', '<Leader>sg', require('telescope.builtin').live_grep, { desc = 'Grep Search' })
+keymap('n', '<Leader>sd', require('telescope.builtin').diagnostics, { desc = 'Diagnostics' })
+keymap('n', '<Leader>sr', require('telescope.builtin').resume, { desc = 'Resume Last Search' })
 
 ---------
 -- LSP --
@@ -74,14 +84,10 @@ local nmap = function(keys, func, desc)
     if desc then
         desc = 'LSP: ' .. desc
     end
-
     keymap('n', keys, func, { buffer = 0, desc = desc })
 end
 
-nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-nmap('gi', require('telescope.builtin').lsp_implementations, '[G]oto Implentation')
-nmap('<Leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-nmap('<Leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-nmap('<Leader>ws',require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+nmap('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
+nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+nmap('gr', require('telescope.builtin').lsp_references, 'Goto References')
+nmap('gi', require('telescope.builtin').lsp_implementations, 'Goto Implentation')

@@ -5,12 +5,12 @@ local config = function()
         return
     end
     which_key.register {
-        ['<Leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<Leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-        ['<Leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<Leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<Leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<Leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        ['<Leader>c'] = { name = 'Code', _ = 'which_key_ignore' },
+        ['<Leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
+        ['<Leader>r'] = { name = 'Rename', _ = 'which_key_ignore' },
+        ['<Leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
+        -- ['<Leader>t'] = { name = 'Toggle', _ = 'which_key_ignore' },
+        ['<Leader>w'] = { name = 'Workspace', _ = 'which_key_ignore' },
     }
 end
 
