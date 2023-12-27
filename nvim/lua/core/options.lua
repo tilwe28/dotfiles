@@ -45,9 +45,9 @@ opt.timeoutlen = 300
 -- opt.clipboard = 'unnamedplus'    -- sync system clipboard
 opt.undodir = vim.fn.expand('~/.cache/nvim/undodir')
 opt.undofile = true                 -- save undo history
-opt.virtualedit = 'block'         -- visual block allows selection over entire screen
+opt.virtualedit = 'block'           -- visual block allows selection over entire screen
 vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
-vim.cmd([[set iskeyword+=-]])       -- make '-' part of word (opt.t.iskeyword:append('-'))
+vim.opt.iskeyword:append('-')           -- make '-' part of word (opt.t.iskeyword:append('-'))
 opt.errorbells = false
 opt.swapfile = false
 opt.backup = false

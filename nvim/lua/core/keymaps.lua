@@ -8,6 +8,14 @@ local silent = { silent = true }
 keymap('n', 'Q', '<Nop>', silent)
 keymap({ 'n', 'v' }, '<Space>', '<Nop>', silent)
 
+-- Save file
+keymap('n', '<C-s>', '<Esc>:w<CR>', silent)
+keymap('i', '<C-s>', '<Esc>:w<CR>i', silent)
+keymap('v', '<C-s>', '<Esc>:w<CR>gv', silent)
+
+-- Remove highlight
+keymap('n', '<Esc>', ':noh<CR>', silent)
+
 -- Line Wrapping
 keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -26,31 +34,60 @@ keymap('i', '<C-l>', '<Esc><C-w>li', silent)
 keymap('n', '<M-->', ':vertical resize -2<CR>', silent)
 keymap('n', '<M-=>', ':vertical resize +2<CR>', silent)
 
--- NvimTree
-keymap({ 'n', 'v', 'i' }, '<C-b>', function()
+-- Buffer Navigation
+keymap('n', '<S-l>', ':bnext<CR>', silent)
+keymap('n', '<S-h>', ':bprev<CR>', silent)
+
+-- Indenting
+keymap('n', '>', '>>', silent)
+keymap('n', '<', '<<', silent)
+keymap('v', '>', '>gv', silent)
+keymap('v', '<', '<gv', silent)
+
+-- Move Lines
+keymap('n', '<M-Up>', ':m .-2<CR>', silent)
+keymap('n', '<M-Down>', ':m .+1<CR>', silent)
+keymap('v', '<M-Up>', ':m .-2<CR>gv', silent)
+keymap('v', '<M-Down>', ":m '>+<CR>gv", silent)
+keymap('i', '<M-Down>', '<Esc>:m .+1<CR>i', silent)
+keymap('i', '<M-Up>', '<Esc>:m .-2<CR>i', silent)
+
+-- Don't Copy into Register
+keymap('v', 'p', '"_dP', silent)
+keymap('n', 'x', '"_x', silent)
+
+-- Change Numbers
+keymap('n', '<Leader>+', '<C-a>', { desc = 'Increment' })
+keymap('n', '<Leader>-', '<C-x>', { desc = 'Decrement' })
+
+-- Windows and Buffers
+keymap('n', '<Leader>w', ':close<CR>', { silent = true, desc = 'Close Window' })
+keymap('n', '<Leader>q', ':bd<CR>', { silent = true, desc = 'Close Buffer' })
+
+--------------
+-- NvimTree --
+--------------
+keymap('n', '<C-b>', function()
     if vim.bo.filetype ~= 'NvimTree' then
         return '<Esc>:NvimTreeToggle<CR>'
     else
         return '<Esc>:NvimTreeClose<CR>'
     end
 end, { expr = true, silent = true, desc = "Toggle NvimTree", })
-
--- Buffer Navigation
-keymap('n', '<S-l>', ':bnext<CR>', silent)
-keymap('n', '<S-h>', ':bprev<CR>', silent)
-
--- Indenting
-keymap({ 'n', 'v' }, '>', '>gv', silent)
-keymap({ 'n', 'v' }, '<', '<gv', silent)
-
--- Move Lines
-keymap({ 'n', 'v' }, '<M-Down>', ':m .+1<CR>', silent)
-keymap({ 'n', 'v' }, '<M-Up>', ':m .-2<CR>', silent)
-keymap('i', '<M-Down>', '<Esc>:m .+1<CR>i', silent)
-keymap('i', '<M-Up>', '<Esc>:m .-2<CR>i', silent)
-
--- Paste
-keymap('v', 'p', '"_dP', silent)
+keymap('i', '<C-b>', function()
+    if vim.bo.filetype ~= 'NvimTree' then
+        return '<Esc>:NvimTreeToggle<CR>i'
+    else
+        return '<Esc>:NvimTreeClose<CR>i'
+    end
+end, { expr = true, silent = true, desc = "Toggle NvimTree", })
+keymap('v', '<C-b>', function()
+    if vim.bo.filetype ~= 'NvimTree' then
+        return '<Esc>:NvimTreeToggle<CR>gv'
+    else
+        return '<Esc>:NvimTreeClose<CR>gv'
+    end
+end, { expr = true, silent = true, desc = "Toggle NvimTree", })
 
 ---------------
 -- Telescope --

@@ -1,8 +1,16 @@
 -- Treesitter
 local config = vim.defer_fn(function()
     require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'bash', 'cpp', 'python', 'html', 'markdown' },
-        auto_install = true,
+        ensure_installed = {
+            'c', 'cpp',
+            'lua', 'vim','vimdoc',
+            'query','bash',
+            'python', 'java',
+            'html', 'css', 'markdown',
+            'javascript', 'typescript', 'tsx',
+            'rust',
+        },
+        auto_install = false,
 
         highlight = { enable = true },
         indent = { enable = true },

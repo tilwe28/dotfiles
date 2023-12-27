@@ -9,8 +9,7 @@ local config = function()
         ['<Leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
         ['<Leader>r'] = { name = 'Rename', _ = 'which_key_ignore' },
         ['<Leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
-        -- ['<Leader>t'] = { name = 'Toggle', _ = 'which_key_ignore' },
-        ['<Leader>w'] = { name = 'Workspace', _ = 'which_key_ignore' },
+        ['<Leader>W'] = { name = 'Workspace', _ = 'which_key_ignore' },
     }
 end
 

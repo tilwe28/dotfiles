@@ -15,9 +15,9 @@ local on_attach = function(_, bufnr)
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     -- Folders
-    nmap('<Leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-    nmap('<Leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-    nmap('<Leader>wl', function()
+    nmap('<Leader>Wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+    nmap('<Leader>Wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+    nmap('<Leader>Wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, '[W]orkspace [L]ist Folders')
 
@@ -43,9 +43,11 @@ local config = function()
                 diagnostics = { disable = { 'missing-fields' } },
             },
         },
+
         clangd = {},
         pyright = {},
-        html = { filetypes = { 'html' } },
+
+        html = {},
     }
 
     local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, 'mason-lspconfig')
