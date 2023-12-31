@@ -1,0 +1,23 @@
+# Ignore everything
+/*
+
+# Track .gitignore
+!.gitignore
+
+# Iterm2
+!/iterm2
+/iterm2/*
+/iterm2/colors
+
+# Zsh
+!/zsh
+/zsh/.*
+!/zsh/.zshrc
+/zsh/plugins/*
+
+# Neovim
+!/nvim
+/nvim/lazy-lock.json
+
+# Vim
+!.vimrc
