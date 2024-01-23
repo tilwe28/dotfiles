@@ -1,0 +1,102 @@
+{
+    /*
+    Extensions:
+    - Atom One Darker
+    - Better Comments
+    - C/C++
+    - CodeLLDB
+    - Dev Containers
+    - Lc2k assembly support
+    - Prettier
+    - Pylance
+    - Python
+    - Reload
+    - TabOut
+    - vscode-icons
+    - vscode-pdf
+    */
+
+    "editor.fontFamily": "MesloLGS Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
+    "workbench.iconTheme": "vscode-icons",
+    
+    // ATOM ONE DARKER THEME
+    "workbench.colorCustomizations": {
+        "[Atom One Darker]": {
+        // Darker - #14161a
+        "activityBar.background": "#161a24",
+        "activityBar.border": "#2c2c31",
+        "statusBar.background": "#161a24",
+        "statusBar.border": "#2c2c31",
+        "titleBar.activeBackground": "#161a24",
+        "titleBar.inactiveBackground": "#161a24",
+        "titleBar.border": "#2c2c31",
+        "sideBar.background": "#161a24",
+        "sideBar.border": "#2c2c31",
+        "tab.inactiveBackground": "#161a24",
+        "tab.activeBackground": "#2c2c31",
+        "tab.activeBorderTop": "#0065ba",
+        "editorGroupHeader.tabsBackground": "#161a24",
+        "editor.background": "#161a24"
+      }
+    },
+    "editor.tokenColorCustomizations": {
+        "[Atom One Darker]": {
+            // Green - "comments": "#419648"
+            "comments": "#595b5f"
+        }
+    },
+    "workbench.colorTheme": "Atom One Darker",
+
+    // OPTIONS: Text Editor
+    "editor.fontSize": 14,
+    "editor.renderWhitespace": "none",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.wordWrap": "on",
+    "editor.guides.bracketPairs": "active",
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.linkedEditing": true,
+    "editor.scrollbar.verticalScrollbarSize": 10,
+    "editor.cursorBlinking": "phase",
+    "editor.find.cursorMoveOnType": false,
+    "editor.fontLigatures": false,
+    "editor.minimap.enabled": false,
+    "editor.minimap.autohide": true,
+    "editor.accessibilitySupport": "off",
+    "editor.quickSuggestions": {
+        "strings": "on"
+    },
+
+    // OPTIONS: Workbench
+    "workbench.layoutControl.enabled": false,
+    "workbench.panel.opensMaximized": "never",
+    "workbench.startupEditor": "none",
+    "workbench.preferredDarkColorTheme": "Atom One Darker",
+    "workbench.preferredLightColorTheme": "Default Light+",
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.view.alwaysShowHeaderActions": true,
+
+    // OPTIONS: Window
+    "window.commandCenter": false,
+    
+    // OPTIONS: Features
+    "explorer.confirmDelete": false,
+    
+    // Terminal
+    "terminal.explorerKind": "external",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+
+    // LANGUAGE SPECIFIC
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.formatOnSave": true,
+        "editor.wordBasedSuggestions": "off",
+        "editor.rulers": [
+            { "column": 80, "color": "#242731" },
+        ],
+    },
+}

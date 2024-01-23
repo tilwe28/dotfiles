@@ -21,3 +21,6 @@
 
 # Vim
 !.vimrc
+
+# VSCode
+!/vscode
