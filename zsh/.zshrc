@@ -1,5 +1,7 @@
 #!/bin/sh
 
+ZDOTDIR=~/.config/zsh/
+
 # git
 autoload -Uz vcs_info
 precmd() { 
@@ -30,6 +32,10 @@ setopt cdsilent
 source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/exports.zsh
 source $ZDOTDIR/completions.zsh
+
+# cdpath
+setopt auto_cd
+cdpath=($HOME/dev/umich)
 
 # vi mode
 bindkey -v
