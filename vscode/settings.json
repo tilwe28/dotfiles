@@ -74,6 +74,9 @@
     "workbench.preferredLightColorTheme": "Default Light+",
     "workbench.tree.renderIndentGuides": "always",
     "workbench.view.alwaysShowHeaderActions": true,
+    "files.exclude": {
+        "**/*.dSYM": true
+    },
 
     // OPTIONS: Window
     "window.commandCenter": false,
@@ -99,4 +102,57 @@
             { "column": 80, "color": "#242731" },
         ],
     },
+    
+    // VIM MODE
+    // "editor.lineNumbers": "relative",
+
+    // BETTER COMMENTS
+    "better-comments.tags": [
+        {
+          "tag": "!",
+          "color": "#FF2D00",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        },
+        {
+          "tag": "?",
+          "color": "#3498DB",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        },
+        {
+          "tag": "//",
+          "color": "#474747",
+          "strikethrough": true,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        },
+        {
+          "tag": "todo",
+          "color": "#FF8C00",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        },
+        {
+          "tag": "~",
+          "color": "#00c8ff",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        }
+      ],
+      "latex-workshop.latex.autoClean.run": "onBuilt"
 }
