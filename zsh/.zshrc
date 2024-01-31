@@ -6,6 +6,12 @@ ZDOTDIR=~/.config/zsh/
 autoload -Uz vcs_info
 precmd() { 
     vcs_info 
+    COURSE='%~'
+    if [[ $PWD == ~/dev/umich/* ]] then
+        local curr_dir=${PWD/#$HOME\//}
+        local c_path=${curr_dir#dev/umich/}
+        COURSE=${c_path#/}
+    fi
 }
 
 setopt prompt_subst
@@ -21,7 +27,7 @@ NEWLINE=$'\n'
 # black, red, green, yellow, blue, magenta, cyan, white
 #   000, 001,   002,    003,  004,     005,  006,   007
 # bright colors just add 8
-PROMPT='${NEWLINE}  %F{012}%~ %(?.%F{green}.%F{red})$%f %E'
+PROMPT='${NEWLINE}  %F{012}${COURSE} %(?.%F{green}.%F{red})$%f %E'
 RPROMPT='%(?..%F{red}%?%f) ${vcs_info_msg_0_}%b'
 
 # options
@@ -42,15 +48,15 @@ bindkey -v
 export KEYTIMEOUT=1
 # Change cursor shape for different vi modes
 function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
+    if [[ ${KEYMAP} == vicmd ]] ||
+        [[ $1 = 'block' ]]; then
+            echo -ne '\e[1 q'
+        elif [[ ${KEYMAP} == main ]] ||
+            [[ ${KEYMAP} == viins ]] ||
+            [[ ${KEYMAP} = '' ]] ||
+            [[ $1 = 'beam' ]]; then
+                    echo -ne '\e[5 q'
+    fi
 }
 zle -N zle-keymap-select
 zle-line-init() {
@@ -67,9 +73,9 @@ function zsh_add_plugin() {
     PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
     if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
         source "$ZDOTDIR/plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
-        source "$ZDOTDIR/plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
-    else
-        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
+            source "$ZDOTDIR/plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+                else
+                    git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
     fi
 }
 
