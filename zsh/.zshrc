@@ -82,4 +82,9 @@ function zsh_add_plugin() {
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+
+eval "$(fzf --zsh)"
