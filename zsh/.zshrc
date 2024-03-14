@@ -81,3 +81,5 @@ function zsh_add_plugin() {
 
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

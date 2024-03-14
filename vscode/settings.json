@@ -62,6 +62,7 @@
     "editor.minimap.enabled": false,
     "editor.minimap.autohide": true,
     "editor.accessibilitySupport": "off",
+    "explorer.compactFolders": false,
     "editor.quickSuggestions": {
         "strings": "on"
     },
@@ -154,5 +155,24 @@
           "italic": false
         }
       ],
-      "latex-workshop.latex.autoClean.run": "onBuilt"
+      
+      // LATEX Workshop
+      "latex-workshop.latex.autoClean.run": "onBuilt",
+      "security.workspace.trust.untrustedFiles": "open",
+      "workbench.sideBar.location": "right",
+      "git.confirmSync": false,
+      
+      // Web Dev
+      "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+      },
+      "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+      },
+      "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+      },
 }
