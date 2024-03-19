@@ -24,3 +24,9 @@
 
 # VSCode
 !/vscode
+
+# Tmux
+!/tmux
+
+# Starship
+!starship.toml
