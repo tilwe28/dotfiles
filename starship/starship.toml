@@ -16,6 +16,8 @@ $sudo\
 $character\
 """
 palette = 'tilwe'
+scan_timeout = 10
+command_timeout = 500
 
 [palettes.tilwe]
 black = '#000000'

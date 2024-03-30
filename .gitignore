@@ -30,4 +30,4 @@
 !/tmux
 
 # Starship
-!starship.toml
+!starship/
