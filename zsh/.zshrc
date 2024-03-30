@@ -87,4 +87,11 @@ if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
 fi
 
+# fzf
 eval "$(fzf --zsh)"
+
+# zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
+# starship prompt
+eval "$(starship init zsh)"
