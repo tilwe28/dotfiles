@@ -37,13 +37,48 @@
         "tab.activeBorderTop": "#0065ba",
         "editorGroupHeader.tabsBackground": "#161a24",
         "editor.background": "#161a24"
-      }
+      },
     },
     "editor.tokenColorCustomizations": {
-        "[Atom One Darker]": {
-            // Green - "comments": "#419648"
-            "comments": "#595b5f"
+      "[Atom One Darker]": {
+        "comments": "#595b5f"
+      },
+      "textMateRules": [
+        {
+          "name": "One Dark italic",
+          "scope": [
+            "comment",
+            "entity.other.attribute-name",
+            "keyword",
+            "markup.underline.link",
+            "storage.modifier",
+            "storage.type",
+            "string.url",
+            "variable.language.super",
+            "variable.language.this"
+          ],
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "name": "One Dark italic reset",
+          "scope": [
+            "keyword.operator",
+            "keyword.other.type",
+            "storage.modifier.import",
+            "storage.modifier.package",
+            "storage.type.built-in",
+            "storage.type.function.arrow",
+            "storage.type.generic",
+            "storage.type.java",
+            "storage.type.primitive"
+          ],
+          "settings": {
+            "fontStyle": ""
+          }
         }
+      ]
     },
     "workbench.colorTheme": "Atom One Darker",
 
@@ -175,4 +210,5 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
       },
+      "editor.formatOnSave": true,
 }

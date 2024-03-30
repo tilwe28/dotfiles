@@ -6,6 +6,10 @@ local config = function()
     end
 
     nvim_tree.setup({
+        view = {
+            side = 'right',
+            width = {},
+        },
         renderer = {
             highlight_git = true,
             indent_markers = { enable = true, },

@@ -9,9 +9,9 @@ keymap('n', 'Q', '<Nop>', silent)
 keymap({ 'n', 'v' }, '<Space>', '<Nop>', silent)
 
 -- Save file
-keymap('n', '<C-s>', '<Esc>:w<CR>', silent)
-keymap('i', '<C-s>', '<Esc>:w<CR>i', silent)
-keymap('v', '<C-s>', '<Esc>:w<CR>gv', silent)
+keymap('n', '<C-s>', '<Esc>:w<CR>:NoiceDismiss<CR>', silent)
+keymap('i', '<C-s>', '<Esc>:w<CR>:NoiceDismiss<CR>i', silent)
+keymap('v', '<C-s>', '<Esc>:w<CR>:NoiceDismiss<CR>gv', silent)
 
 -- Remove highlight
 keymap('n', '<Esc>', ':noh<CR>', silent)
@@ -21,14 +21,14 @@ keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Window Navigation
-keymap('n', '<C-h>', '<C-w>h', silent)
-keymap('n', '<C-j>', '<C-w>j', silent)
-keymap('n', '<C-k>', '<C-w>k', silent)
-keymap('n', '<C-l>', '<C-w>l', silent)
-keymap('i', '<C-h>', '<Esc><C-w>hi', silent)
-keymap('i', '<C-j>', '<Esc><C-w>ji', silent)
-keymap('i', '<C-k>', '<Esc><C-w>ki', silent)
-keymap('i', '<C-l>', '<Esc><C-w>li', silent)
+-- keymap('n', '<C-h>', '<C-w>h', silent)
+-- keymap('n', '<C-j>', '<C-w>j', silent)
+-- keymap('n', '<C-k>', '<C-w>k', silent)
+-- keymap('n', '<C-l>', '<C-w>l', silent)
+-- keymap('i', '<C-h>', '<Esc><C-w>hi', silent)
+-- keymap('i', '<C-j>', '<Esc><C-w>ji', silent)
+-- keymap('i', '<C-k>', '<Esc><C-w>ki', silent)
+-- keymap('i', '<C-l>', '<Esc><C-w>li', silent)
 
 -- Window Resize
 keymap('n', '<M-->', ':vertical resize -2<CR>', silent)
@@ -53,16 +53,24 @@ keymap('i', '<M-Down>', '<Esc>:m .+1<CR>i', silent)
 keymap('i', '<M-Up>', '<Esc>:m .-2<CR>i', silent)
 
 -- Don't Copy into Register
+keymap({'n', 'v'}, 'd', '"_d', silent)
 keymap('v', 'p', '"_dP', silent)
 keymap('n', 'x', '"_x', silent)
+-- Yank
+keymap('v', 'Y', 'ygv')
 
 -- Change Numbers
 keymap('n', '<Leader>+', '<C-a>', { desc = 'Increment' })
 keymap('n', '<Leader>-', '<C-x>', { desc = 'Decrement' })
 
 -- Windows and Buffers
-keymap('n', '<Leader>w', ':close<CR>', { silent = true, desc = 'Close Window' })
-keymap('n', '<Leader>q', ':bd<CR>', { silent = true, desc = 'Close Buffer' })
+keymap('n', '<Leader>xw', ':close<CR>', { silent = true, desc = 'Close Window' })
+keymap('n', '<Leader>xb', ':bd<CR>', { silent = true, desc = 'Close Buffer' })
+keymap('n', '<Leader>v', ':vsplit<CR>', { silent = true, desc = 'Vertical Split' })
+keymap('n', '<Leader>h', ':split<CR>', { silent = true, desc = 'Horizontal Split' })
+
+-- Noice
+keymap("n", "<leader>nn", ":NoiceDismiss<CR>", silent)
 
 --------------
 -- NvimTree --

@@ -10,6 +10,8 @@ local config = function()
         ['<Leader>r'] = { name = 'Rename', _ = 'which_key_ignore' },
         ['<Leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
         ['<Leader>W'] = { name = 'Workspace', _ = 'which_key_ignore' },
+        ['<Leader>x'] = { name = 'Close', _ = 'which_key_ignore' },
+        ['<Leader>n'] = { name = 'Noice', _ = 'which_key_ignore' },
     }
 end
 

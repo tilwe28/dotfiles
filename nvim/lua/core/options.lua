@@ -7,6 +7,9 @@ local opt = vim.o
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- sync system clipboard
+opt.clipboard = 'unnamedplus'
+
 -- Indentation
 opt.expandtab = true
 opt.tabstop = 4
@@ -15,6 +18,35 @@ opt.softtabstop = 4
 opt.breakindent = true
 opt.autoindent = true
 opt.smartindent = true
+
+-- Makefiles need tabs not spaces
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'mk.make',
+    command = 'set noexpandtab'
+})
+-- Filetypes with indent size of 2 spaces
+vim.api.nvim_create_augroup('setIndent', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+    group = 'setIndent',
+    pattern = {
+        'scheme',
+        'html',
+        'jsx',
+        'tsx',
+        'javascriptreact',
+        'typescriptreact',
+    },
+    command = 'setlocal tabstop=2 shiftwidth=2 softtabstop=2',
+})
+-- Filetypes with indent size of 8 spaces
+vim.cmd('autocmd BufNewFile,BufRead *.as setfiletype asm')
+vim.api.nvim_create_autocmd('FileType', {
+    group = 'setIndent',
+    pattern = {
+        'asm',
+    },
+    command = 'setlocal tabstop=8 shiftwidth=8 softtabstop=8',
+})
 
 -- Searching
 opt.incsearch = true

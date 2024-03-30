@@ -1,8 +1,9 @@
 # Ignore everything
 /*
 
-# Track .gitignore
+# .gitignore and README
 !.gitignore
+!README.md
 
 # Iterm2
 !/iterm2

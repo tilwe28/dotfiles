@@ -12,7 +12,7 @@ local on_attach = function(_, bufnr)
     nmap('<Leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     -- Folders
     nmap('<Leader>Wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
