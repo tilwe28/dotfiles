@@ -74,13 +74,16 @@ style = 'yellow'
 disabled = false
 format = '[$symbol]($style) '
 [os.symbols]
-Macos = ''
-Windows = ''
+Macos = '[](white)'
+Windows = '[](bright-blue)'
+Ubuntu = '[](purple dimmed)'
+Redhat = '[󱄛](red)'
+RedHatEnterprise = '[󱄛](red)'
 
 [hostname]
 ssh_only = true
 format = '[$ssh_symbol\[$hostname\]]($style):'
-ssh_symbol = ' '
+ssh_symbol = '[](bright-blue) '
 style = 'bold purple dimmed'
 
 [sudo]
