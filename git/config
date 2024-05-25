@@ -1,0 +1,6 @@
+[user]
+    name = Anurag Tilwe
+    email = anurag.tilwe6@gmail.com
+[core]
+    editor = nvim
+    excludesfile = $HOME/.config/git/ignore
