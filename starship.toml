@@ -1,0 +1,109 @@
+format= """
+$os\
+$hostname\
+$directory\
+$python\
+$c\
+$docker_context\
+$fill\
+$cmd_duration\
+$status\
+$git_branch\
+$git_state\
+$git_status\
+$line_break\
+$sudo\
+$character\
+"""
+palette = 'tilwe'
+scan_timeout = 10
+command_timeout = 500
+
+[palettes.tilwe]
+black = '#000000'
+red = '#c91b00'
+green = '#00c200'
+yellow = '#fbff00'
+blue = '#2e74ff'
+purple = '#e000ff'
+cyan = '#00c5c7'
+white = '#d8d8d8'
+bright-black = '#676767'
+bright-red = '#ff6d67'
+bright-green = '#46f54f'
+bright-yellow = '#f3f054'
+bright-blue = '#4086f4'
+bright-purple = '#ff76ff'
+bright-cyan = '#5ffdff'
+bright-white = '#ffffff'
+
+[directory]
+format = '[$path]($style) [$read_only]($read_only_style)'
+style = 'bright-blue'
+truncation_length = 0
+repo_root_style = 'bold bright-blue'
+read_only = ''
+read_only_style = 'bright-black'
+
+[fill]
+symbol = ' '
+
+[cmd_duration]
+format = '[$duration]($style) '
+style = 'bright-yellow'
+
+[status]
+disabled = false
+symbol = ''
+
+[git_branch]
+format = '[$symbol$branch]($style) '
+symbol = ''
+style = 'bold green'
+
+[git_status]
+format = '([$modified$staged$untracked$deleted$renamed$conflicted$stashed$ahead_behind]($style) )'
+modified = '~$count '
+staged = '+$count '
+untracked = '?$count '
+deleted = '✘$count '
+renamed = '*$count '
+style = 'yellow'
+
+[os]
+disabled = false
+format = '[$symbol]($style) '
+[os.symbols]
+Macos = '[](white)'
+Windows = '[](bright-blue)'
+Ubuntu = '[](bright-purple dimmed)'
+Redhat = '[󱄛](red)'
+RedHatEnterprise = '[󱄛](red)'
+
+[hostname]
+ssh_only = true
+format = '[$ssh_symbol\[$hostname\]]($style):'
+ssh_symbol = '[](bright-blue) '
+style = 'bold purple dimmed'
+
+[sudo]
+disabled = false
+format = '[$symbol]($style)'
+symbol = ' '
+style = 'bright-black'
+
+[python]
+disabled = true
+format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = '󰌠'
+
+[c]
+disabled = true
+format = '[$symbol $name-$version]($style)'
+symbol = '󰙱'
+style = 'bold #522e8c'
+
+[docker_context]
+disabled = true
+format = '[$symbol$context]($style) '
+style = 'bright-cyan'
