@@ -1,5 +1,11 @@
 #!/bin/sh
 
+ZDOTDIR=~/.config/zsh
+
+# fallback prompt
+# local NEWLINE=$'\n'
+# PROMPT='${NEWLINE}  %F{012}%~ %(?.%F{green}.%F{red})$%f %E'
+
 # aliases and exports
 source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/exports.zsh
@@ -27,10 +33,6 @@ zstyle ':completion:*' list-colors "${(s.:.)EZA_COLORS}"
 zmodload zsh/complist
 _comp_options+=(globdots) # hidden dot files
 
-# keybindings
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
-
 # history
 HISTFILE=~/.cache/zsh/history
 HISTSIZE=5000
@@ -45,10 +47,10 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # fzf
-if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+if [[ ! "$PATH" == */home/tilwe/.fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/home/tilwe/.fzf/bin"
 fi
-# eval <(fzf --zsh)
+source <(fzf --zsh)
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
