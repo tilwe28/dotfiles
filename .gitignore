@@ -1,2 +1,11 @@
+# zsh
 zsh/plugins
 zsh/.zcompdump
+
+# tmux
+tmux/
+!tmux/tmux.conf
+
+# misc
+lazygit/
+nvm/
