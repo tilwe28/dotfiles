@@ -27,6 +27,7 @@
 !/vscode
 
 # Tmux
+tmux/plugins
 !/tmux
 
 # Starship
