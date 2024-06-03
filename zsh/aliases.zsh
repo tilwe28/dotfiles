@@ -11,7 +11,7 @@ alias l='eza -lhF --icons -s=type --group-directories-first --git --git-ignore -
 alias ld='eza -F -D'
 
 # batcat
-alias cat='batcat'
+alias cat='batcat --theme OneHalfDark'
 
 # neovim
 alias nv='nvim'
