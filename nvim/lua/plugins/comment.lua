@@ -1,15 +1,13 @@
--- Comment
 return {
-    {
-        'numToStr/Comment.nvim',
-        lazy = false,
-        opts = {},
-    },
-    {
-        'folke/todo-comments.nvim',
-        lazy = false,
-        opts = {
-            -- TODO: configure colors and keywords for comments
-        },
-    },
+	"folke/todo-comments.nvim",
+	dependencies = { "nvim-lua/plenary.nvim" },
+	lazy = false,
+
+	config = function(_, _)
+		local todo_status_ok, todo = pcall(require, "todo-comments")
+		if not todo_status_ok then
+			return
+		end
+		todo.setup()
+	end,
 }
