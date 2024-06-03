@@ -1,19 +1,30 @@
 #!/bin/sh
 
-HISTFILE=~/.cache/zsh/history
-HISTSIZE=10000
-SAVEHIST=10000
-
 export EDITOR="nvim"
 export VISUAL="nvim"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export LS_COLORS="fi=00:di=01;36:ex=01;32:ln=35:or=38;5;128:.*rc=33:*.cpp=38;5;12:*.cc=38;5;12:*.c=38;5;12:*.h=38;5;128:*.hpp=38;5;128:*.py=38;5;12:*.txt=38;5;248"
-export EXA_COLORS="da=38;5;242:sn=38;5;242:ng=31:nt=31:sb=38;5;242:ug=31:ut=31:ur=38;5;242:uw=38;5;242:ux=38;5;242:ue=38;5;242:gr=38;5;242:gw=38;5;242:gx=38;5;242:tr=38;5;242:tw=38;5;242:tx=38;5;242"
-
 # starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+# eza
+export EZA_COLORS="\
+di=01;38;5;39:fi=00:ex=03;92:\
+ln=38;5;91:lp=95:or=09;38;5;91:\
+ur=90:uw=90:ux=90:ue=90:\
+gr=90:gw=90:gx=90:\
+tr=90:tw=90:tx=90:\
+sn=90:ng=38;5;124:nt=38;5;196:ug=38;5;124:ut=38;5;196:\
+ga=38;5;124:gm=22;38;5;226:gd=09;38;5;124:gv=36:gi=90:gc=41:\
+da=90:\
+hd=04;37:\
+im=38;5;117:vi=38;5;135:mu=38;5;225:lo=38;5;225:\
+cr=38;5;98:\
+do=38;5;166:\
+co=38;5;130:\
+tm=38;5;237:\
+cm=38;5;88:bu=04:sc=38;5;214"
 
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
@@ -22,3 +33,8 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # conda & python
 export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+
+# node
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

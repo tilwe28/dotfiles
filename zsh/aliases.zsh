@@ -8,14 +8,14 @@ alias ofd='open $PWD'
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
-# list (use exa instead of ls)
-# man 5 exa_colors to customize colors and LS_COLORS
-alias ls='exa -s=type' # alias ls='ls -CF --color=auto'
-alias ll='exa -lah --icons -s=type --no-user' # alias ll='ls -alF --color=auto'
-alias la='exa -lah --icons -s=type --no-user' # alias la='ls -A --color=auto'
-alias l='exa -lh --icons -s=type --no-user' # alias l='ls -ltrF --color=auto'
+# eza
+alias ls='eza'
+alias ll='eza -alhF --icons -s=type --no-user --group-directories-first --git --total-size'
+alias la='eza -alhF --icons -s=type --group-directories-first --git --no-permissions --no-filesize --no-user --no-time'
+alias l='eza -lhF --icons -s=type --group-directories-first --git --git-ignore --no-permissions --no-filesize --no-user --no-time'
+alias ld='eza -F -D'
 
-# cat/bat
+# batcat
 alias cat='bat --theme OneHalfDark'
 
 # vim
