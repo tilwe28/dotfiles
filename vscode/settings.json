@@ -26,11 +26,9 @@
     "textMateRules": [
       {
         "name": "Python Docstring",
-        "scope": [
-          "string.quoted.docstring.multi.python"
-        ],
+        "scope": ["string.quoted.docstring.multi.python"],
         "settings": {
-          "foreground": "#6e6e6e",
+          "foreground": "#6e6e6e"
         }
       }
     ]
