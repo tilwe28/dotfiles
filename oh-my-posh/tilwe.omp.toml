@@ -1,0 +1,106 @@
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:white'
+    template = '{{ .Icon }}'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:blue'
+    template = ' <b>{{ .Path }}</b>'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:yellow'
+    template = '{{ .FormattedMs }}'
+
+    [blocks.segments.properties]
+      threshold = 2000
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:red'
+    template = ' <b>{{ .Code }}</b>'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:green'
+    # template = ' <b>{{ .HEAD }}</b><p:yellow>{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}</>'
+    template = ' <b>{{ .HEAD }}</b><p:yellow>{{ if or (.Working.Changed) (.Staging.Changed) }} *{{ end }} {{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+
+    [blocks.segments.properties]
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    background = 'transparent'
+    foreground_templates = [
+      '{{ if eq .Code 0 }}p:green{{end}}',
+      '{{ if gt .Code 0 }}p:red{{end}}',
+      '{{ if lt .Code 0 }}p:red{{end}}',
+    ]
+    template = '❯'
+
+[transient_prompt]
+  style = 'plain'
+  background = 'transparent'
+  foreground_templates = [
+    '{{ if eq .Code 0 }}p:green{{end}}',
+    '{{ if gt .Code 0 }}p:red{{end}}',
+    '{{ if lt .Code 0 }}p:red{{end}}',
+  ]
+  template = '❯ '
+
+[secondary_prompt]
+  background = 'transparent'
+  foreground = 'p:bright-black'
+  template = '❯❯ '
+
+[palette]
+  black = '#000000'
+  red = '#c91b00'
+  green = '#00c200'
+  yellow = '#fbff00'
+  orange = '#e0a659'
+  blue = '#2e74ff'
+  purple = '#e000ff'
+  cyan = '#00c5c7'
+  white = '#d8d8d8'
+  bright-black = '#676767'
+  bright-red = '#ff6d67'
+  bright-green = '#46f54f'
+  bright-yellow = '#f3f054'
+  bright-blue = '#4086f4'
+  bright-purple = '#ff76ff'
+  bright-cyan = '#5ffdff'
+  bright-white = '#ffffff'

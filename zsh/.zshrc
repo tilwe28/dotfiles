@@ -57,3 +57,6 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # starship prompt
 eval "$(starship init zsh)"
+
+# oh-my-posh
+# eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/oh-my-posh/tilwe.omp.toml")"
