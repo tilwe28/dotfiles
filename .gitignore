@@ -37,3 +37,6 @@ tmux/plugins
 
 # Starship
 !starship/
+
+# oh-my-posh
+!oh-my-posh/
