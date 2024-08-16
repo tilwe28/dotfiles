@@ -93,14 +93,17 @@ symbol = ' '
 style = 'bright-black'
 
 [python]
+disabled = true
 format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 symbol = '󰌠'
 
 [c]
+disabled = true
 format = '[$symbol $name-$version]($style)'
 symbol = '󰙱'
 style = 'bold #522e8c'
 
 [docker_context]
+disabled = true
 format = '[$symbol$context]($style) '
 style = 'bright-cyan'
