@@ -1,0 +1,14 @@
+wezterm
+arc
+google-chrome
+visual-studio-code
+raycast
+rectangle
+aldente
+hiddenbar
+hyperkey
+fliqlo
+notion
+figma
+zoom
+

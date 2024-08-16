@@ -1,9 +1,14 @@
 # Ignore everything
 /*
 
+# Install script
+!/install.sh
+!/formulae.txt
+!/casks.txt
+
 # .gitignore and README
-!.gitignore
-!README.md
+!/.gitignore
+!/README.md
 
 # Iterm2
 !/iterm2
