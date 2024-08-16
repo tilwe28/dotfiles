@@ -16,6 +16,6 @@ neovim
 tmux
 lazygit
 yazi
-oh-my-posh
+jandedobbeleer/oh-my-posh/oh-my-posh
 watchman
 
