@@ -6,9 +6,12 @@ raycast
 rectangle
 aldente
 hiddenbar
+betterdisplay
+logitech-options
 hyperkey
 fliqlo
 notion
 figma
 zoom
+microsoft-word
 
