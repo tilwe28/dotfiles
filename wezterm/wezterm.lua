@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 config.colors = {
 	foreground = "#d8d8d8",
-	background = "#1b202c",
+	background = "#1a1e28",
 	cursor_bg = "#c7c7c7",
 	cursor_fg = "#575458",
 	cursor_border = "#c7c7c7",
@@ -35,7 +35,7 @@ config.colors = {
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.95
-config.macos_window_background_blur = 10
+config.macos_window_background_blur = 25
 
 config.adjust_window_size_when_changing_font_size = false
 
@@ -46,8 +46,8 @@ config.harfbuzz_features = { "ss02", "ss03", "ss05", "ss08", "cv02", "cv16", "cv
 config.bold_brightens_ansi_colors = "BrightAndBold"
 -- config.foreground_text_hsb = {
 -- 	hue = 1.0,
--- 	saturation = 1.05,
--- 	brightness = 1.05,
+-- 	saturation = 1.1,
+-- 	brightness = 1.1,
 -- }
 
 config.freetype_interpreter_version = 40
