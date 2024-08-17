@@ -39,9 +39,9 @@ bright-white = '#ffffff'
 
 [directory]
 format = '[$path]($style) [$read_only]($read_only_style)'
-style = 'bright-blue'
+style = 'blue'
 truncation_length = 0
-repo_root_style = 'bold bright-blue'
+repo_root_style = 'bold blue'
 read_only = ''
 read_only_style = 'bright-black'
 
