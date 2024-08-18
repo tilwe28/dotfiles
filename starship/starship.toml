@@ -2,9 +2,6 @@ format= """
 $os\
 $hostname\
 $directory\
-$python\
-$c\
-$docker_context\
 $fill\
 $cmd_duration\
 $status\
@@ -17,7 +14,7 @@ $character\
 """
 palette = 'tilwe'
 scan_timeout = 10
-command_timeout = 500
+command_timeout = 100
 
 [palettes.tilwe]
 black = '#000000'
@@ -91,19 +88,3 @@ disabled = false
 format = '[$symbol]($style)'
 symbol = ' '
 style = 'bright-black'
-
-[python]
-disabled = true
-format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-symbol = '󰌠'
-
-[c]
-disabled = true
-format = '[$symbol $name-$version]($style)'
-symbol = '󰙱'
-style = 'bold #522e8c'
-
-[docker_context]
-disabled = true
-format = '[$symbol$context]($style) '
-style = 'bright-cyan'
