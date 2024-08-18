@@ -20,10 +20,6 @@ keymap("n", "<Esc>", ":noh<CR>", silent)
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Window Resize
-keymap("n", "<M-->", ":vertical resize -2<CR>", silent)
-keymap("n", "<M-=>", ":vertical resize +2<CR>", silent)
-
 -- Indenting
 keymap("n", ">", ">>", silent)
 keymap("n", "<", "<<", silent)
@@ -129,3 +125,24 @@ nmap("gi", require("telescope.builtin").lsp_implementations, "Goto Implentation"
 -- Noice --
 -----------
 keymap("n", "<leader>nn", ":NoiceDismiss<CR>", silent)
+
+------------------
+-- Smart Splits --
+------------------
+-- resizing splits
+-- these keymaps will also accept a range,
+keymap("n", "<A-h>", require("smart-splits").resize_left)
+keymap("n", "<A-j>", require("smart-splits").resize_down)
+keymap("n", "<A-k>", require("smart-splits").resize_up)
+keymap("n", "<A-l>", require("smart-splits").resize_right)
+-- moving between splits
+keymap("n", "<C-h>", require("smart-splits").move_cursor_left)
+keymap("n", "<C-j>", require("smart-splits").move_cursor_down)
+keymap("n", "<C-k>", require("smart-splits").move_cursor_up)
+keymap("n", "<C-l>", require("smart-splits").move_cursor_right)
+keymap("n", "<C-\\>", require("smart-splits").move_cursor_previous)
+-- swapping buffers between windows
+keymap("n", "<leader><leader>h", require("smart-splits").swap_buf_left)
+keymap("n", "<leader><leader>j", require("smart-splits").swap_buf_down)
+keymap("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
+keymap("n", "<leader><leader>l", require("smart-splits").swap_buf_right)

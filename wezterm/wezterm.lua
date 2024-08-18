@@ -154,26 +154,26 @@ config.keys = {
 	},
 
 	-- pane navigation
-	{
-		mods = "CTRL",
-		key = "h",
-		action = wezterm.action.ActivatePaneDirection("Left"),
-	},
-	{
-		mods = "CTRL",
-		key = "j",
-		action = wezterm.action.ActivatePaneDirection("Down"),
-	},
-	{
-		mods = "CTRL",
-		key = "k",
-		action = wezterm.action.ActivatePaneDirection("Up"),
-	},
-	{
-		mods = "CTRL",
-		key = "l",
-		action = wezterm.action.ActivatePaneDirection("Right"),
-	},
+	-- {
+	-- 	mods = "CTRL",
+	-- 	key = "h",
+	-- 	action = wezterm.action.ActivatePaneDirection("Left"),
+	-- },
+	-- {
+	-- 	mods = "CTRL",
+	-- 	key = "j",
+	-- 	action = wezterm.action.ActivatePaneDirection("Down"),
+	-- },
+	-- {
+	-- 	mods = "CTRL",
+	-- 	key = "k",
+	-- 	action = wezterm.action.ActivatePaneDirection("Up"),
+	-- },
+	-- {
+	-- 	mods = "CTRL",
+	-- 	key = "l",
+	-- 	action = wezterm.action.ActivatePaneDirection("Right"),
+	-- },
 
 	-- tab navigation
 	{
@@ -291,5 +291,15 @@ config.unix_domains = {
 }
 config.default_gui_startup_args = { "connect", "unix" }
 config.default_domain = "unix"
+
+-- smart splits
+local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
+smart_splits.apply_to_config(config, {
+	direction_keys = { "h", "j", "k", "l" },
+	modifiers = {
+		move = "CTRL",
+		resize = "META",
+	},
+})
 
 return config
