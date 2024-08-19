@@ -115,7 +115,7 @@ config.audible_bell = "Disabled"
 config.animation_fps = 60
 
 -- multiplexing keybinds
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
+config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
 	{
 		mods = "LEADER",

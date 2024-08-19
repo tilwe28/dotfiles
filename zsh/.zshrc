@@ -2,9 +2,9 @@
 
 ZDOTDIR=~/.config/zsh/
 
-# fallback prompt
-# local NEWLINE=$'\n'
-# PROMPT='${NEWLINE}  %F{012}%~ %(?.%F{green}.%F{red})$%f %E'
+# prompt
+eval "$(starship init zsh)"
+export PS2='%F{#555}❯❯%f '
 
 # aliases, exports, and completions
 source $ZDOTDIR/aliases.zsh
@@ -23,19 +23,20 @@ function zsh_add_plugin() {
 
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-completions"
 
 # completions
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _extensions _complete _approximate
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '' 'r:|[._-]=*r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=*r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "${(s.:.)EZA_COLORS}"
 zmodload zsh/complist
 _comp_options+=(globdots) # hidden dot files
 
 # history
-HISTFILE=~/.cache/zsh/history
 HISTSIZE=5000
+HISTFILE=$XDG_CONFIG_HOME/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
@@ -46,6 +47,20 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# keybindings
+# emacs keybind cheat sheet:
+#   C-a move to beginning of line
+#   C-e move to end of line
+#   M-b move back a word
+#   M-f move forward one word
+#   C-x C-u undo
+#   C-u delete line
+#   C-w delete back a word
+#   M-d delete forward a word
+bindkey -e
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
 # fzf
 if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
@@ -54,10 +69,3 @@ source <(fzf --zsh)
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
-
-# starship prompt
-eval "$(starship init zsh)"
-export PS2='%F{#555}❯❯%f '
-
-# oh-my-posh
-# eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/oh-my-posh/tilwe.omp.toml")"
