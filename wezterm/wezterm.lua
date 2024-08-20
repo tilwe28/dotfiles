@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
-config.quit_when_all_windows_are_closed = false
+config.quit_when_all_windows_are_closed = true
 
 -- colorscheme
 config.colors = {
