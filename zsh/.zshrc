@@ -1,13 +1,3 @@
-# prompt
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init zsh)"
-export PS2='%F{#555}❯❯%f '
-
-# macos
-alias ofd='open $PWD'
-alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-
 # eza
 export EZA_COLORS="\
 di=01;38;5;39:fi=00:ex=03;92:\
@@ -32,7 +22,8 @@ alias l='eza -lhF --icons -s=type --group-directories-first --git --git-ignore -
 alias ld='eza -F -D'
 
 # batcat
-alias cat='bat --theme OneHalfDark'
+export BAT_THEME="OneHalfDark"
+alias cat='bat'
 
 # vim
 alias nv='nvim'
@@ -51,25 +42,30 @@ export EDITOR="nvim"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
 # plugins
-function zsh_add_plugin() {
-    local PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
-        source "$ZDOTDIR/plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
-            source "$ZDOTDIR/plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
-    else
-        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
-    fi
-}
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
 
-autoload -Uz compinit && compinit
+# load starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
+export PS2='%F{#555}❯❯%f '
 
-zsh_add_plugin "Aloxaf/fzf-tab"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-completions"
-
+zinit light "Aloxaf/fzf-tab"
+zinit light "zsh-users/zsh-syntax-highlighting"
+zinit light "zsh-users/zsh-autosuggestions"
+zinit light "zsh-users/zsh-completions"
 
 # completions
+autoload -Uz compinit && compinit
+zinit cdreplay -q
+
 zstyle ':completion:*' menu no
 zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=*r:|=*' 'l:|=* r:|=*'
@@ -110,6 +106,15 @@ if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
 fi
 source <(fzf --zsh)
+
+export FZF_DEFAULT_OPTS="--height=-10% --reverse"
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
+export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
