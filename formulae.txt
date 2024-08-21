@@ -9,18 +9,14 @@ btop
 zoxide
 eza
 bat
-tree
 tldr
 nvm
 neovim
-tmux
 lazygit
 yazi
 sevenzip
 jq
 poppler
 fastfetch
-starship
-jandedobbeleer/oh-my-posh/oh-my-posh
 watchman
 
