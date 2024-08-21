@@ -3,14 +3,14 @@ local config = function()
 	if not which_key_status_ok then
 		return
 	end
-	which_key.register({
-		["<Leader>c"] = { name = "Code", _ = "which_key_ignore" },
-		["<Leader>g"] = { name = "Git", _ = "which_key_ignore" },
-		["<Leader>r"] = { name = "Rename", _ = "which_key_ignore" },
-		["<Leader>s"] = { name = "Search", _ = "which_key_ignore" },
-		["<Leader>W"] = { name = "Workspace", _ = "which_key_ignore" },
-		["<Leader>x"] = { name = "Close", _ = "which_key_ignore" },
-		["<Leader>n"] = { name = "Noice", _ = "which_key_ignore" },
+	which_key.add({
+		{ "<Leader>c", desc = "Code" },
+		{ "<Leader>g", desc = "Git" },
+		{ "<Leader>r", desc = "Rename" },
+		{ "<Leader>s", desc = "Search" },
+		{ "<Leader>W", desc = "Workspace" },
+		{ "<Leader>x", desc = "Close" },
+		{ "<Leader>n", desc = "Noice" },
 	})
 end
 
