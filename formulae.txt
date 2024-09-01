@@ -2,7 +2,6 @@ git
 wget
 tree
 python
-java
 ripgrep
 fzf
 fd
