@@ -257,6 +257,14 @@ wezterm.on("update-status", function(window, pane)
 
 	if workspace == "default" then
 		bg_color = { Color = "#666666" }
+	elseif workspace == "eecs481" then
+		bg_color = { Color = "#006600" }
+	elseif workspace == "eecs482" then
+		bg_color = { Color = "#65499D" }
+	elseif workspace == "eecs485" then
+		bg_color = { Color = "#0B9BE3" }
+	elseif workspace == "eecs492" then
+		bg_color = { Color = "#D97900" }
 	end
 
 	if window:leader_is_active() then
