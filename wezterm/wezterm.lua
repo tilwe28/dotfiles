@@ -8,7 +8,7 @@ config.quit_when_all_windows_are_closed = true
 -- colorscheme
 config.colors = {
 	foreground = "#d8d8d8",
-	background = "#1a1e28",
+	background = "#161a24",
 	cursor_bg = "#c7c7c7",
 	cursor_fg = "#575458",
 	cursor_border = "#c7c7c7",
@@ -42,6 +42,8 @@ config.freetype_interpreter_version = 40
 config.max_fps = 180
 config.term = "wezterm"
 config.bold_brightens_ansi_colors = "BrightAndBold"
+-- config.line_height = 1.05
+-- config.cell_width = 1.05
 -- config.foreground_text_hsb = {
 -- 	hue = 1.0,
 -- 	saturation = 1.1,
@@ -55,7 +57,7 @@ config.background = {
 		hsb = { brightness = 0.1 },
 	},
 	{
-		source = { Color = "#1a1e28" },
+		source = { Color = "#161a24" },
 		width = "100%",
 		height = "100%",
 		opacity = 0.95,
@@ -77,22 +79,22 @@ config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 config.colors.tab_bar = {
-	background = "#1a1e28",
+	background = "#161a24",
 
 	active_tab = {
 		-- bg_color = "#4172f6",
-		-- fg_color = "#1a1e28",
-		bg_color = "#1a1e28",
+		-- fg_color = "#161a24",
+		bg_color = "#161a24",
 		fg_color = "#d8d8d8",
 		intensity = "Bold",
 	},
 	inactive_tab = {
-		bg_color = "#1a1e28",
+		bg_color = "#161a24",
 		fg_color = "#666666",
 		intensity = "Normal",
 	},
 	inactive_tab_hover = {
-		bg_color = "#1a1e28",
+		bg_color = "#161a24",
 		fg_color = "#999999",
 		italic = false,
 		intensity = "Bold",
@@ -252,18 +254,19 @@ end
 wezterm.on("update-status", function(window, pane)
 	-- leader key indication
 	local bg_color = { Color = "#5284ec" }
-	local fg_color = { Color = "#1a1e28" }
+	local fg_color = { Color = "#161a24" }
 	local workspace = wezterm.mux.get_active_workspace()
+	local class = string.sub(workspace, 1, 7)
 
 	if workspace == "default" then
 		bg_color = { Color = "#666666" }
-	elseif workspace == "eecs481" then
+	elseif class == "eecs481" then
 		bg_color = { Color = "#006600" }
-	elseif workspace == "eecs482" then
+	elseif class == "eecs482" then
 		bg_color = { Color = "#65499D" }
-	elseif workspace == "eecs485" then
+	elseif class == "eecs485" then
 		bg_color = { Color = "#0B9BE3" }
-	elseif workspace == "eecs492" then
+	elseif class == "eecs492" then
 		bg_color = { Color = "#D97900" }
 	end
 
