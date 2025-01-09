@@ -8,6 +8,10 @@ return {
 		if not ibl_status_ok then
 			return
 		end
-		ibl.setup({})
+		ibl.setup({
+			indent = {
+				char = "▏",
+			},
+		})
 	end,
 }

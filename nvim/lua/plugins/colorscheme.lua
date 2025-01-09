@@ -17,6 +17,11 @@ return {
 			end
 			onedark.setup(opts)
 			vim.cmd.colorscheme("onedark")
+
+			-- custom colors
+			vim.api.nvim_set_hl(0, "LineNr", { fg = "#2c303a" })
+			vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1a1e28" })
+			vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#1a1e28" })
 		end,
 	},
 	{
