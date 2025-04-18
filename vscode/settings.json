@@ -39,7 +39,7 @@
   "editor.tokenColorCustomizations": {
     "[*]": {
       // "comments": "#4d556a",
-      "comments": "#888888"
+      "comments": "#888888",
       // "strings": "#95D567",
       "strings": "#71d562",
     },
