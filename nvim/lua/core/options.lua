@@ -44,6 +44,19 @@ opt.mouse = "a"
 opt.updatetime = 250
 opt.timeoutlen = 300
 
+-- Disable comment continuation
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "r", "o" })
+	end,
+})
+
+-- Ensure newline at end of file
+vim.opt.endofline = true
+vim.opt.fixendofline = true
+vim.opt.endoffile = true
+
 -- Misc
 opt.undodir = vim.fn.expand("~/.cache/nvim/undodir")
 opt.undofile = true -- save undo history

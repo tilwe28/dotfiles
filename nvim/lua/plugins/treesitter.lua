@@ -75,7 +75,14 @@ local config = vim.defer_fn(function()
 
 		autopairs = { enable = true },
 		-- autotag = { enable = true },
+
+		fold = { enable = true },
 	})
+
+	vim.opt.foldmethod = "expr"
+	vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+	vim.opt.foldenable = false -- Disable folding at first
+	vim.opt.foldlevel = 99 -- Open all folds by default
 end, 0)
 
 return {
