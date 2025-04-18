@@ -1,3 +1,6 @@
+# tmux
+export TMUX_CONF=~/.config/tmux/tmux.conf
+
 # eza
 export EZA_COLORS="\
 di=01;38;5;39:fi=00:ex=03;92:\
@@ -21,6 +24,8 @@ alias la='eza -alhF --icons -s=type --group-directories-first --git --no-permiss
 alias l='eza -lhF --icons -s=type --group-directories-first --git --git-ignore --no-permissions --no-filesize --no-user --no-time'
 alias ld='eza -F -D'
 
+alias c='clear'
+
 # batcat
 export BAT_THEME="OneHalfDark"
 alias cat='bat'
@@ -41,6 +46,52 @@ alias gp='git push'
 export EDITOR="nvim"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
+# git
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr "*"
+zstyle ':vcs_info:*' stagedstr "+"
+# zstyle ':vcs_info:git*' formats "%F{blue}%r/%S %F{green}%b%F{yellow}%u%c%f"
+zstyle ':vcs_info:git*' formats "%F{#555}%b%u%c%f"
+zstyle ':vcs_info:git*' actionformats "%F{green}%b%F{yellow}%u%c%f(%F{red}%a%f)"
+
+# function to format directory in prompt
+fmt_vcs_dir() {
+    local git_path
+    git_path=$(git rev-parse --show-toplevel 2>/dev/null) || {
+        # not in a git repo
+        print -r -- "%~"
+        return
+    }
+
+    local root_dir sub_dirs
+    root_dir=${git_path:t}
+    if [[ "$PWD" == "$git_path" ]]; then
+        # at root of repo
+        print -n -- "%B${root_dir}%b"
+    else
+        # in subdirectory of repo
+        sub_dirs=${PWD#$git_path/}
+        print -n -- "%B${root_dir}%b/${sub_dirs}"
+    fi
+
+    # if in git repo, display vcs_info_msg_0_
+    [[ -n $vcs_info_msg_0_ ]] && print -n -- " ${vcs_info_msg_0_}"
+}
+
+# prompt
+precmd() { 
+    print ""
+    vcs_info
+}
+setopt prompt_subst
+
+NEWLINE=$'\n'
+# export PS1='%F{blue}${vcs_info_msg_0_:-%~}%f %(?.. %F{red}%?)%f${NEWLINE}%F{magenta}❯%f '
+export PS1='%F{blue}$(fmt_vcs_dir)%f%(?.. %F{red}%?)%f${NEWLINE}%F{magenta}❯%f '
+export PS2='%F{#555}❯❯%f '
+
 # plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -48,14 +99,6 @@ if [ ! -d "$ZINIT_HOME" ]; then
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "${ZINIT_HOME}/zinit.zsh"
-
-# load starship
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
-export PS2='%F{#555}❯❯%f '
 
 zinit light "Aloxaf/fzf-tab"
 zinit light "zsh-users/zsh-syntax-highlighting"
