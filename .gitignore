@@ -10,15 +10,22 @@
 !/.gitignore
 !/README.md
 
-# Zsh
+# Window Manager
+!/aerospace
+
+# Terminal
+!/ghostty
+
+# Shell
 !/zsh
 /zsh/.*
 !/zsh/.zshrc
 /zsh/plugins/*
 
-# Neovim
+# Editor
 !/nvim
 /nvim/lazy-lock.json
-
-# Vim
 !.vimrc
+
+# Misc
+!/sketchybar
