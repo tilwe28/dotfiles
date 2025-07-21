@@ -10,13 +10,6 @@
 !/.gitignore
 !/README.md
 
-# Iterm2
-!/iterm2
-/iterm2/*
-/iterm2/colors
-
-!/wezterm
-
 # Zsh
 !/zsh
 /zsh/.*
@@ -29,19 +22,3 @@
 
 # Vim
 !.vimrc
-
-# VSCode
-!/vscode
-
-# Tmux
-tmux/plugins
-!/tmux
-
-# Starship
-!starship/
-
-# oh-my-posh
-!oh-my-posh/
-
-# yazi
-!yazi/
