@@ -15,6 +15,7 @@
 
 # Terminal
 !/ghostty
+!/tmux
 
 # Shell
 !/zsh
